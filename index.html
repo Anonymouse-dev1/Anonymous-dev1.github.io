@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWT — Private Access</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #8a8a8a;
+      --accent: #8b0000;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #0a0a0a 0%, #000 60%);
+      color: var(--fg);
+      font-family: 'Arial', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      display: grid;
+      place-items: center;
+      letter-spacing: 0.08em;
+    }
+    .card {
+      width: min(92vw, 520px);
+      padding: 28px 26px 30px;
+      border: 1px solid #1a1a1a;
+      background: linear-gradient(180deg, #020202, #000);
+      box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .grain::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1"/></filter><rect width="120" height="120" filter="url(%23n)" opacity="0.04"/></svg>');
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    .eyebrow {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      margin: 6px 0 14px;
+      font-size: 28px;
+      line-height: 1.1;
+      font-weight: 800;
+    }
+    h1 span { color: var(--accent); }
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1f1f1f, transparent);
+      margin: 18px 0 16px;
+    }
+    .copy {
+      color: #d8d8d8;
+      font-size: 13px;
+      line-height: 1.6;
+      letter-spacing: 0.06em;
+    }
+    .status {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border: 1px dashed #1f1f1f;
+      font-size: 12px;
+      color: #cfcfcf;
+    }
+    .cta {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+    }
+    .btn {
+      text-decoration: none;
+      text-align: center;
+      padding: 12px 14px;
+      border: 1px solid #1f1f1f;
+      color: var(--fg);
+      background: #050505;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      transition: transform .08s ease, border-color .12s ease, background .12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: var(--accent); background: #0a0a0a; }
+    .foot {
+      margin-top: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .serial { color: #6f6f6f; }
+    @media (max-width: 420px) { h1 { font-size: 24px; } }
+  </style>
+</head>
+<body>
+  <main class="card grain">
+    <div class="eyebrow">PRIVATE ACCESS</div>
+    <h1>ALBURY WODONGA <span>TAKEOVER</span></h1>
+    <div class="divider"></div>
+    <p class="copy">
+      You did not arrive here by accident. Access to this collective is controlled and revocable.
+      Information is shared privately. Locations and details are never public.
+    </p>
+
+    <div class="status">
+      STATUS: <strong>ACCESS PENDING</strong><br />
+      If you were invited, proceed through the verification path below.
+    </div>
+
+    <div class="cta">
+      <!-- Replace the href values with your private links -->
+      <a class="btn" href="#" aria-label="Request verification">REQUEST VERIFICATION</a>
+      <a class="btn" href="#" aria-label="Enter private channel">ENTER PRIVATE CHANNEL</a>
+    </div>
+
+    <div class="foot">
+      <div>DO NOT SHARE</div>
+      <div class="serial">AWT–000</div>
+    </div>
+  </main>
+</body>
+</html>
